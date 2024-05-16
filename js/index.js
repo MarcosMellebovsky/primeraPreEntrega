@@ -57,7 +57,7 @@ function rtirarEfectivo(saldo) {
             saldoRetirado = parseInt(prompt("Error! Vuelve a ingresar una cantidad menor o igual que $" + saldo));
         } while (saldoRetirado > saldo);
 
-        saldo = saldo - saldoRetirado;
+        saldo = saldo - saldoRetirado
         alert("El saldo que te quedó en cuenta es de: $" + saldo);
     } 
   }
@@ -75,7 +75,9 @@ function depositarEfectivo(saldo) {
       alert("No se puede depositar esa cantidad, máximo hasta: $" + depositoMaximo);
   } else {
       saldo = saldo + saldoDepositado;
-      alert("El saldo que te quedó en cuenta es de: $" + saldo);
+      alert(`
+      Operacion exitosa!! `+ "$"+ saldoDepositado + " recargados!" +  `
+      El saldo que te quedó en cuenta es de: $` + saldo);
   }
   return saldo;
 }
