@@ -5,7 +5,7 @@ saldo = parseInt(prompt("Ingrese su saldo!!"));
 while (saldo <= 0){
 saldo = parseInt(prompt("Error! Vuelva a ingresar su saldo!"));
 }
-let resultado;
+
   do {
     
     opcion = parseInt(prompt(`Bienvenido al cajero automático
@@ -23,10 +23,10 @@ let resultado;
         consultarSaldo(saldo);
         break;
       case 2:
-        rtirarEfectivo(saldo,resultado);
+       saldo = rtirarEfectivo(saldo);
         break;
       case 3:
-        depositarEfectivo(saldo);
+       saldo =  depositarEfectivo(saldo);
         break;
       case 4:
           alert("Gracias por usar el cajero automático.❤️❤️ ");
@@ -39,7 +39,7 @@ let resultado;
 function consultarSaldo(saldo) {
   alert("Su saldo actual es de: " + "$"+ saldo);
 }
-function rtirarEfectivo(saldo,resultado) {  
+function rtirarEfectivo(saldo) {  
     let saldoRetirado
      saldoRetirado = parseInt(prompt("¿Cuánto desea retirar?"));
     while (saldoRetirado <= 0){
@@ -49,18 +49,19 @@ function rtirarEfectivo(saldo,resultado) {
 
     if (estaSeguro == "si") {
     if (saldoRetirado <= saldo) {
-        resultado = saldo - saldoRetirado;
-        alert("El saldo que te quedó en cuenta es de: $" + resultado);
+        saldo = saldo - saldoRetirado;
+        alert("El saldo que te quedó en cuenta es de: $" + saldo);
     } 
     else {
         do {
             saldoRetirado = parseInt(prompt("Error! Vuelve a ingresar una cantidad menor o igual que $" + saldo));
         } while (saldoRetirado > saldo);
 
-        resultado = saldo - saldoRetirado;
-        alert("El saldo que te quedó en cuenta es de: $" + resultado);
+        saldo = saldo - saldoRetirado;
+        alert("El saldo que te quedó en cuenta es de: $" + saldo);
     } 
   }
+  return saldo;
   
 }
 
